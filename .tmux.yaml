@@ -1,0 +1,17 @@
+session_name: ts-analysis
+start_directory: "."
+windows:
+- window_name: edit
+  layout: even-horizontal
+  focus: true
+  shell_command_before:
+    - echo initial command
+  panes:
+    - shell_command: echo "pane 1"
+      focus: true
+    - echo "pane 2"
+- window_name: git
+  layout: even-horizontal
+  panes:
+    - shell_command: git repl
+    - vifm .

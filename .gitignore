@@ -1,0 +1,11 @@
+*~
+*.pyc
+*.class
+*.swp
+*.o
+*.hi
+*.retry
+*.log
+.vscode/
+.mypy_cache/
+.ipynb_checkpoints/
