@@ -82,3 +82,18 @@ https://github.com/facebook/prophet
 https://realpython.com/python-scipy-fft/
 
 https://www.youtube.com/playlist?list=PLMrJAkhIeNNT_Xh3Oy0Y4LTj0Oxo8GqsC
+
+### Time series analysis books
+
+https://www.tableau.com/learn/articles/time-series-analysis-books
+
+### Videos
+
+[Time Series Analysis - PyCon 2017][1100]
+
+[1100]: https://www.youtube.com/watch?v=zmfe2RaX-14
+
+[Modern Time Series Analysis - SciPy 2019][1120]
+
+[1120]: https://www.youtube.com/watch?v=v5ijNXvlC5A
+
