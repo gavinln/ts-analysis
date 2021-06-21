@@ -9,3 +9,4 @@
 .vscode/
 .mypy_cache/
 .ipynb_checkpoints/
+download_data_dir/

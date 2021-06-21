@@ -10,6 +10,8 @@ jupyterlab = "*"
 scipy = "*"
 seaborn = "*"
 jupytext = "*"
+statsmodels = "*"
+sklearn = "*"
 
 [requires]
 python_version = "3.8"
