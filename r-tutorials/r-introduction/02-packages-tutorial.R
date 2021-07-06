@@ -16,7 +16,7 @@ library(pacman)  # no message
 pacman::p_load(pacman, dplyr, GGally, ggplot2, ggthemes,
                ggvis, httr, lubridate, plotly, rio, rmarkdown, shiny,
                stringr, tidyr)
-librayr(datasets)  # load/unload packages manually
+library(datasets)  # load/unload packages manually
 
 # Clean up
 p_unload(dplr, stringr)  # clear specific packages
