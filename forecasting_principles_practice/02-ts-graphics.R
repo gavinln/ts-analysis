@@ -125,6 +125,93 @@ a10 %>%
     title = "Australian antidiabetic drug sales"
   )
 
+holidays <- tourism %>% 
+  filter(Purpose == "Holiday") %>% 
+  group_by(State) %>% 
+  summarise(Trips = sum(Trips))
+holidays
+
+autoplot(holidays, Trips) + 
+  labs(y = "Overnight trips ('000)",
+       title = "Australian domestic holidays")
+
+gg_season(holidays, Trips) + 
+  labs(y = "Overnight trips ('000)",
+       title = "Australian domestic holidays")
+
+holidays %>% 
+  gg_subseries(Trips) + 
+  labs(y = "Overnight trips ('000)",
+       title = "Australian domestic holidays")
+
+# 2.6 Scatterplots ===================================================================
+
+vic_elec %>% 
+  filter(year(Time) == 2014) %>% 
+  autoplot(Demand) +
+  labs(y = "GW",
+       title = "Half-hourly electricity demand: Victoria")
+
+vic_elec %>% 
+  filter(year(Time) == 2014) %>% 
+  autoplot(Temperature) +
+  labs(y = "Degrees Celsius",
+       title = "Half-hourly temperature demand: Victoria")
+
+vic_elec %>% 
+  filter(year(Time) == 2014) %>% 
+  ggplot(aes(x = Temperature, y = Demand)) +
+  geom_point() + 
+  labs(x = "Temperature (degrees Celsius",
+       y = "Electricity demand (GW)")
+
+visitors <- tourism %>% 
+  group_by(State) %>% 
+  summarise(Trips = sum(Trips))
+
+visitors %>% 
+  ggplot(aes(x = Quarter, y = Trips)) +
+  geom_line() + 
+  facet_grid(vars(State), scales = "free_y") + 
+  labs(x = "Australian domestic tourism",
+       y = "Overnight trips ('000)")
+
+visitors %>% 
+  pivot_wider(values_from=Trips, names_from=State) %>% 
+  GGally::ggpairs(columns = 2:9) 
+
+# 2.7 Lag plots ======================================================================
+
+recent_production <- aus_production %>% 
+  filter(year(Quarter) >= 2000)
+
+recent_production %>% 
+  gg_lag(Beer, geom = "point") + 
+  labs(y = "lag(Beer, k)")
+
+# 2.8 Autocorrelation ================================================================
+recent_production %>% 
+  ACF(Beer, lag_max=9)
+
+recent_production %>% 
+  ACF(Beer) %>% 
+  autoplot() +
+  labs(title = "Australian beer production")
+
+a10 %>% 
+  ACF(Cost, lag_max = 48) %>% 
+  autoplot() +
+  labs(title="Australian antidiabetic drug sales")
+
+# 2.9 White noise ====================================================================
+set.seed(30)
+y <- tsibble(sample = 1:50, wn = rnorm(50), index = sample)
+y %>% autoplot(wn) + labs(title = "White noise", y="")
+
+y %>% 
+  ACF(wn) %>% 
+  autoplot() + labs(title = "White noise")
+
 # Clean up
 p_unload(all)  # clears all add-ons
 
