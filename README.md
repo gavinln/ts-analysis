@@ -136,4 +136,6 @@ time: 2:23:00
 
 [1130]: https://www.youtube.com/watch?v=nT6UsVgJ0xw
 
-time: 1:10:00
+[Anomaly detection][1140]
+
+[1140]: https://www.youtube.com/watch?v=1NXryMoU7Ho

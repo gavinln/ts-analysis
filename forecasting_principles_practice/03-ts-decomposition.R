@@ -17,7 +17,7 @@ head(global_economy)
 global_economy %>% 
   filter(Country == "Australia") %>% 
   autoplot(GDP/Population) + 
-  labs(title="GDP per campita", y="$US")
+  labs(title="GDP per capita", y="$US")
 
 aus_economy <- global_economy %>% 
   filter(Code == "AUS")
@@ -95,6 +95,27 @@ components(dcmp) %>%
   labs(y = "Persons (thousands)",
        title = "Total employment in US retail")
 
+
+# 3.3 Moving averages =====================================================
+
+global_economy %>% 
+  filter(Country == "Australia") %>% 
+  autoplot(Exports) + 
+  labs(y = "% of GDP",
+       title = "Total Australian exports")
+  
+aus_exports <- global_economy %>% 
+  filter(Country == "Australia") %>% 
+  mutate(S_MA = slider::slide_dbl(
+    Exports, mean, .before = 2, .after = 2, complete = TRUE))
+
+aus_exports %>% 
+  autoplot(Exports) +
+  geom_line(aes(y = S_MA), color = "#D55E00") +
+  labs(y = "% of GDP",
+       title = "Total Australian exports") + 
+  guides(color = guide_legend(title = "series"))
+  
 # Clean up
 p_unload(all)  # clears all add-ons
 
