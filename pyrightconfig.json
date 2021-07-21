@@ -1,0 +1,6 @@
+{
+	"include": ["notebooks"],
+	"venvPath": "/home/gavin/.local/share/virtualenvs",
+	"venv": "ts-analysis-DAfF1lQW",
+	"verboseOutput": true
+}
