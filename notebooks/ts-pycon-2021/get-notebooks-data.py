@@ -10,6 +10,7 @@ from urllib.parse import urljoin
 import urllib.request
 import logging
 import zipfile
+import sys
 
 
 SCRIPT_DIR = pathlib.Path(__file__).parent.resolve()
