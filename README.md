@@ -139,3 +139,15 @@ time: 2:23:00
 [Anomaly detection][1140]
 
 [1140]: https://www.youtube.com/watch?v=1NXryMoU7Ho
+
+## Python time series libraries
+
+[sktime][1150]
+
+[1150]: https://github.com/alan-turing-institute/sktime
+
+[tsfresh][1160]
+
+[1160]: https://github.com/blue-yonder/tsfresh
+
+
