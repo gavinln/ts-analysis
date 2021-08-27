@@ -12,6 +12,7 @@ seaborn = "*"
 jupytext = "*"
 statsmodels = "*"
 sklearn = "*"
+sktime = "*"
 
 [requires]
 python_version = "3.8"
