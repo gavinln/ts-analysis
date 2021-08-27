@@ -13,6 +13,10 @@ jupytext = "*"
 statsmodels = "*"
 sklearn = "*"
 sktime = "*"
+ipython = "*"
+pyparsing = "*"
+pytest = "*"
+yapf = "*"
 
 [requires]
 python_version = "3.8"
