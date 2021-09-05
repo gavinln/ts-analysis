@@ -17,6 +17,10 @@ ipython = "*"
 pyparsing = "*"
 pytest = "*"
 yapf = "*"
+pystan = "==2.19.1.1"
+plotly = "*"
+prophet = "*"
+kats = "*"
 
 [requires]
 python_version = "3.8"
