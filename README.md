@@ -150,4 +150,8 @@ time: 2:23:00
 
 [1160]: https://github.com/blue-yonder/tsfresh
 
+[Kit to analyze time series - Kats][1170]
+
+[1170]: https://github.com/facebookresearch/Kats
+
 
