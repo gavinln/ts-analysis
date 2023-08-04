@@ -154,4 +154,6 @@ time: 2:23:00
 
 [1170]: https://github.com/facebookresearch/Kats
 
+[Darts - Python library for user-friendly forecasting][1180]
 
+[1180]: https://github.com/unit8co/darts
