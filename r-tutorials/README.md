@@ -2,7 +2,7 @@
 
 ## From R programming [tutorial video][100]
 
-[100]: https://www.youtube.com/watch?v=_V8eKsto3Ug 
+[100]: https://www.youtube.com/watch?v=_V8eKsto3Ug
 
 ```
 ./r-introduction/

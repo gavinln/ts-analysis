@@ -8,17 +8,17 @@ SCRIPT_DIR = pathlib.Path(__file__).parent.resolve()
 
 
 # parameter definition
-keyName = Word(alphanums + '_')
+keyName = Word(alphanums + "_")
 
-LParen, RParen = map(Suppress, '()')
-unitDef = LParen + Word(alphanums + '^*/-._') + RParen
-paramValueDef = SkipTo('#' | lineEnd)
+LParen, RParen = map(Suppress, "()")
+unitDef = LParen + Word(alphanums + "^*/-._") + RParen
+paramValueDef = SkipTo("#" | lineEnd)
 
 paramDef = keyName + Optional(unitDef) + "=" + empty + paramValueDef
 
 
 def test_paramDef():
-    print(paramDef.parseString('Debug = False'))
+    print(paramDef.parseString("Debug = False"))
 
 
 def main():

@@ -13,8 +13,8 @@ y <- data[, 12]
 
 reg1 <- lm(y ~ x)
 
-reg1 <- lm(RTEN ~ CONT + INTG + DMNR + DILG + 
-           CFMG + DECI + PREP + FAMI + ORAL + 
+reg1 <- lm(RTEN ~ CONT + INTG + DMNR + DILG +
+           CFMG + DECI + PREP + FAMI + ORAL +
            WRIT + PHYS + RTEN,
            data=USJudgeRatings)
 
@@ -61,4 +61,3 @@ cat("\014")  # ctrl+l
 
 # Clean plots
 dev.off()
-

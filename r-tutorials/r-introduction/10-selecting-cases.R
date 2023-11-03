@@ -11,7 +11,7 @@ summary(iris$Species)
 hist(iris$Petal.Length[iris$Species == "versicolor"],
      main="Petal Length: Versicolor")
 
-# Virginica 
+# Virginica
 hist(iris$Petal.Length[iris$Species == "virginica"],
      main="Petal Length: Verginica")
 
@@ -23,7 +23,7 @@ hist(iris$Petal.Length[iris$Species == "setosa"],
 hist(iris$Petal.Length[iris$Petal.Length < 2],
      main="Petal Length < 2")
 
-# Virginica 
+# Virginica
 hist(iris$Petal.Length[iris$Species == "virginica" &
      iris$Petal.Length < 5.5],
      main="Petal Length: Verginica")
@@ -45,4 +45,3 @@ cat("\014")  # ctrl+l
 
 # Clean plots
 dev.off()
-

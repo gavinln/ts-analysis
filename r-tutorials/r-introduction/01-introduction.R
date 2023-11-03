@@ -1,5 +1,5 @@
 # Load data
-# From R programming tutorial video https://www.youtube.com/watch?v=_V8eKsto3Ug 
+# From R programming tutorial video https://www.youtube.com/watch?v=_V8eKsto3Ug
 
 library(datasets)
 
@@ -15,4 +15,3 @@ detach("package:datasets", unload=TRUE)
 
 # Clean plots
 dev.off()
-

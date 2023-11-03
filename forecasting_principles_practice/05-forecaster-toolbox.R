@@ -14,23 +14,23 @@ pacman::p_load(fpp3)
 
 glimpse(global_economy)
 
-gdppc <- global_economy %>% 
+gdppc <- global_economy %>%
   mutate(GDP_per_capita = GDP/Population)
 
 glimpse(gdppc)
 
-gdppc %>% 
-  filter(Country == "Sweden") %>% 
+gdppc %>%
+  filter(Country == "Sweden") %>%
   autoplot(GDP_per_capita) +
   labs(y = "$US", title = "GDP per capita for Sweden")
 
-fit <- gdppc %>%  
+fit <- gdppc %>%
   model(tremd_model = TSLM(GDP_per_capita ~ trend()))
 
-fit %>% 
-  forecast(h = "3 years") %>% 
-  filter(Country == "Sweden") %>% 
-  autoplot(gdppc) + 
+fit %>%
+  forecast(h = "3 years") %>%
+  filter(Country == "Sweden") %>%
+  autoplot(gdppc) +
   labs(y = "$US", title = "GDP per capita for Sweden")
 
 bricks %>% model(MEAN(Bricks))
@@ -44,41 +44,41 @@ bricks %>% model(SNAIVE(Bricks ~ lag("year")))
 bricks %>%  model(RW(Bricks ~ drift()))
 
 
-train <- aus_production %>% 
+train <- aus_production %>%
   filter_index("1992 Q1" ~ "2006 Q4")
 
-beer_fit <- train %>% 
+beer_fit <- train %>%
   model(Mean = MEAN(Beer), Naive = NAIVE(Beer),
         Seasonal_naive = SNAIVE(Beer))
 
 beer_fc <-  beer_fit %>% forecast(h = 14)
 
-beer_fc %>% 
-  autoplot(train, level = NULL) + 
+beer_fc %>%
+  autoplot(train, level = NULL) +
   autolayer(filter_index(aus_production, "2007 Q1" ~ .),
-            color = "black") + 
+            color = "black") +
   labs(y = "Megalitres",
-       title = "Forcase for quarterly beer production") + 
+       title = "Forcase for quarterly beer production") +
   guides(color = guide_legend(title = "Forecast"))
 
-google_stock <- gafa_stock %>% 
-  filter(Symbol == "GOOG", year(Date) >= 2015) %>% 
-  mutate(day = row_number()) %>% 
+google_stock <- gafa_stock %>%
+  filter(Symbol == "GOOG", year(Date) >= 2015) %>%
+  mutate(day = row_number()) %>%
   update_tsibble(index = day, regular = TRUE)
 
 google_2015 <- google_stock %>% filter(year(Date) == 2015)
 
-google_fit <- google_2015 %>% 
+google_fit <- google_2015 %>%
   model(Mean = MEAN(Close), Naive = NAIVE(Close),
         Drift = NAIVE(Close ~ drift()))
-        
-google_jan_2016 <- google_stock %>% 
+
+google_jan_2016 <- google_stock %>%
   filter(yearmonth(Date) == yearmonth("2016 Jan"))
 
-google_fc <-  google_fit %>% 
+google_fc <-  google_fit %>%
   forecast(new_data = google_jan_2016)
 
-google_fc %>% 
+google_fc %>%
   autoplot(google_2015, level = NULL) +
   autolayer(google_jan_2016, Close, color = "black") +
   labs(y = "$US",
@@ -88,28 +88,28 @@ google_fc %>%
 
 # Residual diagnostics
 
-aug <- google_2015 %>% 
-  model(NAIVE(Close)) %>% 
+aug <- google_2015 %>%
+  model(NAIVE(Close)) %>%
   augment()
 
 glimpse(aug)
 
-autoplot(aug, .innov) + 
+autoplot(aug, .innov) +
   labs(y = "$US",
        title = "Residuals from the Naive method")
 
-aug %>% 
+aug %>%
   ggplot(aes(x = .innov)) +
   geom_histogram() +
   labs(title = "Histogram of residuals")
 
-aug %>% 
-  ACF(.innov) %>% 
-  autoplot() + 
+aug %>%
+  ACF(.innov) %>%
+  autoplot() +
   labs(title = "Residuals from the Naive method")
 
-google_2015 %>% 
-  model(NAIVE(Close)) %>% 
+google_2015 %>%
+  model(NAIVE(Close)) %>%
   gg_tsresiduals()
 
 # Portmanteau test for autocorrelation
@@ -141,4 +141,3 @@ cat("\014")  # ctrl+l
 
 # Clean plots
 dev.off()
-

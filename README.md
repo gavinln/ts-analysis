@@ -140,7 +140,7 @@ time: 2:23:00
 
 [1140]: https://www.youtube.com/watch?v=1NXryMoU7Ho
 
-## Python time series libraries
+### Python time series libraries
 
 [sktime][1150]
 
@@ -157,3 +157,11 @@ time: 2:23:00
 [Darts - Python library for user-friendly forecasting][1180]
 
 [1180]: https://github.com/unit8co/darts
+
+## Links 2023
+
+[Time Series Forecasting With Prophet in Python][2000]
+
+[2000]: https://machinelearningmastery.com/time-series-forecasting-with-prophet-in-python/
+
+Prophet is an open-source library for time seires forecasting developed by Facebook.It is based on an additive model where non-linear trends are fit with yealy, weekly and daily seasonality, plus holiday effects. It works best with time series that have strong seasonal effects and several seasons of historical data.

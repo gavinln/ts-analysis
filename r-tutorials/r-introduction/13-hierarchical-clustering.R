@@ -13,7 +13,7 @@ head(cars)
 hc <- cars  %>%  # get cars data
       dist  %>%  # compute distance/dissimilarity matrix
       hclust
-      
+
 plot(hc)
 
 rect.hclust(hc, k=2, border="gray")
@@ -35,4 +35,3 @@ cat("\014")  # ctrl+l
 
 # Clean plots
 dev.off()
-

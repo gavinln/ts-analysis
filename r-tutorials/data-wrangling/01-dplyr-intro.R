@@ -52,29 +52,29 @@ arrange(EDAWR::storms, desc(wind))
 arrange(EDAWR::storms, wind, date)
 
 # pipe multiple operations
-EDAWR::storms %>% 
-  filter(wind >= 50) %>% 
+EDAWR::storms %>%
+  filter(wind >= 50) %>%
   select(storm, pressure)
 
-EDAWR::storms %>% 
-  mutate(ratio=pressure/wind) %>% 
+EDAWR::storms %>%
+  mutate(ratio=pressure/wind) %>%
   select(storm, ratio)
 
 # unit of analysis
 head(EDAWR::pollution)
-EDAWR::pollution %>% 
-  group_by(city) %>% 
+EDAWR::pollution %>%
+  group_by(city) %>%
   summarise(mean=mean(amount), sum=sum(amount), n=n())
 
 # remove grouping with ungroup()
 
 head(tb)
-EDAWR::tb %>% 
-  mutate(cases=child + adult + elderly)  %>% 
+EDAWR::tb %>%
+  mutate(cases=child + adult + elderly)  %>%
   group_by(country, year) %>%
-  drop_na() %>% 
+  drop_na() %>%
   summarise(cases=sum(cases))  %>%
-  summarise(cases=sum(cases)) %>% 
+  summarise(cases=sum(cases)) %>%
   summarise(cases=sum(cases))
 
 
@@ -132,4 +132,3 @@ cat("\014")  # ctrl+l
 
 # Clean plots
 dev.off()
-

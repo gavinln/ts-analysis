@@ -33,4 +33,3 @@ cat("\014")  # ctrl+l
 
 # Clean plots
 dev.off()
-

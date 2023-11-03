@@ -23,6 +23,16 @@ tmux:  ## start tmux
 flake8:
 	pipenv run flake8 python/
 
+nvim:  ## run nvim editor
+	poetry run nvim
+
+black:  ## run black formatted for Python
+	poetry run black -l 79 ts_analysis/
+
 .PHONY: clean
 clean:  ## remove output files
 	rm -rf output/*
+
+.PHONY: prophet-tutorial
+prophet-tutorial:  ## tutorial for prophet from Facebook
+	poetry run python -c "from ts_analysis import prophet_tutorial; prophet_tutorial()"

@@ -23,4 +23,3 @@ boxplot(cars$dist)
 ```
 
 The mean speed of cars was `r mean(cars$speed)`
-
