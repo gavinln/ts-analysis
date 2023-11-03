@@ -17,13 +17,13 @@ ipython = "*"
 pyparsing = "*"
 pytest = "*"
 yapf = "*"
-pystan = "==2.19.1.1"
+pystan = "*"
 plotly = "*"
 prophet = "*"
 kats = "*"
-numpy = "==1.20.3"
+numpy = "*"
 black-nb = "*"
 black = {extras = ["jupyter"], version = "*"}
 
 [requires]
-python_version = "3.8"
+python_version = "3.9"
